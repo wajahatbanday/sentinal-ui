@@ -12,7 +12,7 @@ interface InputBoxProps {
   inputClasses?: string;
 }
 
-export default function InputBox({
+export const InputBox: React.FC<InputBoxProps> = ({
   label,
   name,
   placeholder,
@@ -20,7 +20,7 @@ export default function InputBox({
   type = "text",
   labelColor = "text-white",
   inputClasses = "",
-}: InputBoxProps) {
+}) => {
   const [field, meta] = useField(name);
 
   return (
@@ -45,4 +45,4 @@ export default function InputBox({
       />
     </div>
   );
-}
+};

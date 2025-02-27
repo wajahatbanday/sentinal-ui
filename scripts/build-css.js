@@ -10,6 +10,12 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
+// Ensure the styles directory exists in dist
+const stylesDir = path.resolve(distDir, "styles");
+if (!fs.existsSync(stylesDir)) {
+  fs.mkdirSync(stylesDir, { recursive: true });
+}
+
 // Read the input CSS file
 const css = fs.readFileSync(
   path.resolve(__dirname, "../src/styles/tailwind.css"),
@@ -26,13 +32,8 @@ postcss([
     // Write the processed CSS to the dist directory
     fs.writeFileSync(path.resolve(distDir, "styles.css"), result.css);
 
-    // Also create a CSS module that can be imported
-    const cssModule = `
-// This file is auto-generated during the build process
-// It allows the CSS to be automatically included when the library is imported
-import './styles.css';
-`;
-    fs.writeFileSync(path.resolve(distDir, "styles.js"), cssModule);
+    // Also write to the styles directory to match the import path
+    fs.writeFileSync(path.resolve(stylesDir, "tailwind.css"), result.css);
 
     console.log("CSS build completed successfully!");
   })

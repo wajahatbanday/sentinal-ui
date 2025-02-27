@@ -13,7 +13,7 @@ npm install sentinal-ui
 ```jsx
 import React from "react";
 import { InputBox } from "sentinal-ui";
-// No need to import CSS separately - it's included automatically!
+import "sentinal-ui/dist/styles.css"; // Import the styles
 
 // Inside your Formik form
 <InputBox
