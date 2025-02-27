@@ -1,0 +1,48 @@
+{
+  "name": "sentinal-ui",
+  "version": "0.1.0",
+  "description": "A reusable UI library with TypeScript, and Tailwind CSS",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run build:ts && npm run build:css",
+    "build:ts": "tsc",
+    "build:css": "node scripts/build-css.js",
+    "build:watch": "tsc --watch",
+    "clean": "rimraf dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwindcss",
+    "ui-library",
+    "react-select",
+    "formik"
+  ],
+  "author": "Wajahat Banday",
+  "license": "MIT",
+  "peerDependencies": {
+    "formik": ">=2.2.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-select": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "autoprefixer": "^10.4.20",
+    "formik": "^2.4.6",
+    "postcss": "^8.5.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.10",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
+}
