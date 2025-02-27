@@ -1,5 +1,20 @@
-@import "./fonts.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Font imports */
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("../assets/fonts/Montserrat-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../assets/fonts/Poppins-Regular.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

@@ -16,6 +16,28 @@ if (!fs.existsSync(stylesDir)) {
   fs.mkdirSync(stylesDir, { recursive: true });
 }
 
+// Ensure the assets/fonts directory exists in dist
+const fontsDirDist = path.resolve(distDir, "assets/fonts");
+if (!fs.existsSync(fontsDirDist)) {
+  fs.mkdirSync(fontsDirDist, { recursive: true });
+}
+
+// Copy font files if they exist
+const srcFontsDir = path.resolve(__dirname, "../src/assets/fonts");
+if (fs.existsSync(srcFontsDir)) {
+  try {
+    const fontFiles = fs.readdirSync(srcFontsDir);
+    fontFiles.forEach((file) => {
+      const srcPath = path.resolve(srcFontsDir, file);
+      const destPath = path.resolve(fontsDirDist, file);
+      fs.copyFileSync(srcPath, destPath);
+      console.log(`Copied font file: ${file}`);
+    });
+  } catch (err) {
+    console.warn("Warning: Could not copy font files:", err.message);
+  }
+}
+
 // Read the input CSS file
 const css = fs.readFileSync(
   path.resolve(__dirname, "../src/styles/tailwind.css"),
