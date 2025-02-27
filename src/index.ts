@@ -1,5 +1,6 @@
 // Export components
 export * from "./components";
 
-// Import styles - this ensures the CSS is included when the library is imported
+// Import styles directly - this will be processed by the build script
 import "./styles/tailwind.css";
+
